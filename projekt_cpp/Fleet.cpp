@@ -37,9 +37,10 @@ Fleet::Fleet() {
 }
 
 void Fleet::makeAService(Date date) { 
+    int choice;
     cout << "Which vehicle would You like to make a full service?" << endl;
     this->showAllVehicles();
-    cout << this->numberOfBuses + this->numberOfCars + ". All vehicles" << endl;
+    cout << this->numberOfBuses << this->numberOfCars << ". All vehicles" << endl;
     cin >> choice;
 
     while (choice < 0 || choice > this->numberOfCars + this->numberOfBuses){
@@ -76,6 +77,7 @@ void Fleet::makeAService(Date date) {
 }
 
 void Fleet::expenditure(double amount) { 
+    int choice;
     choice = this->budget.expenditure(amount, todaysDate);
     if(choice == 2){
         this->sellAVehicle();
@@ -113,7 +115,7 @@ void Fleet::expenditure(double amount) {
 }
 
 void Fleet::buyAVehicle() { 
-    int inputInt, boolCar;
+    int inputInt, boolCar, choice, choiceType;
     double inputdouble;
     string inputString;
 
@@ -148,6 +150,7 @@ void Fleet::buyAVehicle() {
         this->numberOfBuses++;
 
         cout << "Number of passengers: " << endl;
+        cin >> inputInt;
         vehicles[index]->setNumberOfPassengers(inputInt);
     }
 
@@ -192,20 +195,26 @@ void Fleet::buyAVehicle() {
         cout << "Wrong number. Enter 1 or 2." << endl;
         boolCar = inputInt;
     }
+
+    bool manual, boolAir = true;
+
     if(boolCar == 1){
-        vehicles[index]->setManual(true);
+        manual = true;
     }
     else if(boolCar == 2){
-        vehicles[index]->setManual(false);
+        manual = false;
     }
+    vehicles[index]->setManual(manual);
 
     if(choice == 1){
-        vehicles[index]->setCounter(0);
-        vehicles[index]->setYearOfProduction(2020);
-        vehicles[index]->setAirConditioning(true);
-        vehicles[index]->setAccidentFree(true);            
+        inputdouble = 0;
+        inputInt = 2021;
+        vehicles[index]->setCounter(inputdouble);
+        vehicles[index]->setYearOfProduction(inputInt);
+        vehicles[index]->setAirConditioning(boolAir);
+        vehicles[index]->setAccidentFree(boolAir);            
     }
-    else if(choice == 2){                
+    else if(choice == 2){           
         cout << "Counter: " << endl;
         cin >> inputdouble;
         vehicles[index]->setCounter(inputdouble);
@@ -215,7 +224,7 @@ void Fleet::buyAVehicle() {
         vehicles[index]->setYearOfProduction(inputInt);
 
         cout << "Air Conditioning: (1)Yes (2)No" << endl;
-        boolCar = inputInt;            
+        cin >> boolCar;            
         while (boolCar != 1 && boolCar != 2){
             cout << "Wrong number. Enter 1 or 2." << endl;
             boolCar = inputInt;
@@ -245,6 +254,7 @@ void Fleet::buyAVehicle() {
 }
 
 void Fleet::rentAVehicle(Date date) { 
+    int choice, choicePeriod, choiceRepair, choiceInsurance, choiceNegotiation, choiceType;
     cout << "Would Tou like to rent a car(1) or a bus(2)?" << endl;
     cin >> choiceType;
 
@@ -451,8 +461,8 @@ Date Fleet::changeDate(string dateFromInputString) {
         difference = (vehicles[i]->getLastService()).getMonthsBetween(todaysDate);
 
         if(difference > 12){       
-            cout << "Out of date vehicle inspection: " + vehicles[i]->getBrand() + " " + vehicles[i]->getModel() 
-                    +  ". A fine of 500 was imposed." << endl;
+            cout << "Out of date vehicle inspection: " << vehicles[i]->getBrand() << " " << vehicles[i]->getModel() 
+                    <<  ". A fine of 500 was imposed." << endl;
             this->expenditure(500);
         }
     }
@@ -514,6 +524,7 @@ void Fleet::showAllVehicles(){
 }
 
 void Fleet::showSpecificInformation() { 
+    int choice;
     cout << "About which vehicle would You like to see specific information?" << endl;
     this->showAllVehicles();
     cin >> choice;
@@ -527,6 +538,7 @@ void Fleet::showSpecificInformation() {
 }
 
 void Fleet::reportAccident(Date date) { 
+    int choice, choiceRepair;
     cout << "Which vehicle would You like to report as a damaged?" << endl;
     this->showAllVehicles();
     cin >> choice;
@@ -560,6 +572,7 @@ void Fleet::reportAccident(Date date) {
 }
 
 void Fleet::sellAVehicle() { 
+    int choice;
     cout << "Which vehicle would You like to sell?" << endl;
     this->showAvailableVehicles();
     cin >> choice;
@@ -587,6 +600,7 @@ void Fleet::sellAVehicle() {
 }
 
 void Fleet::repairAVehicle() { 
+    int choice, choiceRepair;
     int counter = 0;
 
     for(int i = 0; i < this->numberOfCars + this->numberOfBuses; i++)
@@ -666,6 +680,7 @@ double Fleet::calculatePossession() {
 }
 
 void Fleet::calculateFuel() { 
+    int choice;
     cout << "Which vehicle would You like to calculate the fuel consumption for?" << endl;
     this->showAllVehicles();
     cin >> choice;
@@ -765,8 +780,6 @@ void Fleet::scrapACar(Vehicle* car) {
         this->numberOfBuses--;
 }
 
-// void Fleet::scrapACar(Bus bus) { }
-
 void Fleet::scrapACar(int index) { 
     double scrapValue = vehicles[index]->getMass() * (double)0.4;
     this->budget.impact(scrapValue, todaysDate);
@@ -783,7 +796,6 @@ void Fleet::scrapACar(int index) {
 }
 
 void Fleet::sellAVehicle(Vehicle* car) { 
-
     cout << "The vehicle " << car->getBrand() << " " << car->getModel() << " will be sold" << endl;
 
     if(car->getDamaged() == true)
@@ -804,9 +816,8 @@ void Fleet::sellAVehicle(Vehicle* car) {
 
 }
 
-// void Fleet::sellAVehicle(Bus bus) { }
-
 void Fleet::repairAVehicle(Vehicle* car) { 
+    int choiceRepair;
     double carRepair = (rand() % 100) * (car->getValue()) / 100;
 
     cout << "The car repair will cost " << carRepair << ". Would You like to repair the car(1) or scrap it(2)?" << endl;
@@ -832,5 +843,4 @@ void Fleet::repairAVehicle(Vehicle* car) {
     }
 }
 
-// void Fleet::repairAVehicle(Bus bus) { }
 

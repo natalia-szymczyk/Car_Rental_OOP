@@ -19,7 +19,7 @@ class Fleet{
     private:
         vector<Vehicle*> vehicles;
         int numberOfCars = 0, numberOfBuses = 0;
-        int choice, choicePeriod, choiceRepair, choiceInsurance, choiceNegotiation, choiceType, index, decision;
+        int index, decision;
         double price, kilometers, expenses, possession;
         Date todaysDate;
         void sortByYear();

@@ -14,7 +14,7 @@ Budget::Budget(double budget){
 
 string Budget::formatDate(Date date){
 
-    cout << date.convertToString() << endl;
+    // cout << date.convertToString() << endl;
 
     string stringDate;
     string stringMonth = to_string(date.getMonth());
@@ -87,9 +87,9 @@ void Budget::checkMonth(Date date){
     string month = this->formatDate(date); 
     int monthsBetween = this->todaysDate.getMonthsBetween(date); 
 
-    cout << "Today: " << this->todaysDate.convertToString() << endl;
-    cout << "Other: " << date.convertToString() << endl;
-    cout << monthsBetween << endl;
+    // cout << "Today: " << this->todaysDate.convertToString() << endl;
+    // cout << "Other: " << date.convertToString() << endl;
+    // cout << monthsBetween << endl;
     
     Date date2 = Date(todaysDate);
 

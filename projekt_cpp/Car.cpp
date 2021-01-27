@@ -105,34 +105,34 @@ double Car::negotiate(double negotiate, double price){
 
     if(negotiate < (price * (double)0.9)){
         cout << "Your suggested price is too low. " << endl;
-        cout << "We can offer You " + max((int)(price * 0.9), (int)((negotiate + price)/2));
+        cout << "We can offer You " << max((int)(price * 0.9), (int)((negotiate + price)/2)) << endl;
         cout << "Do You accept this offer?" << endl;
         cout << "1. Yes \n2. No" << endl;
-        cin >> this->choice;
+        cin >> choice;
     
-        while (this->choice != 1 && this->choice != 2){
+        while (choice != 1 && choice != 2){
             cout << "Wrong number. Enter 1 or 2." << endl;
-            cin >> this->choice;
+            cin >> choice;
         }
 
-        if(this->choice == 1){
+        if(choice == 1){
             cout << "Great." << endl;
             return max(price*(double)0.9, (negotiate + price)/2);
         }
-        if(this->choice == 2){
+        if(choice == 2){
             cout << "Would You like to resign (1) or try to negotiate again(2)? " << endl;
-            cin >> this->choice;
+            cin >> choice;
     
-            while (this->choice != 1 && this->choice != 2){
+            while (choice != 1 && choice != 2){
                 cout << "Wrong number. Enter 1 or 2." << endl;
-                cin >> this->choice;
+                cin >> choice;
             }
             
-            if(this->choice == 1){
+            if(choice == 1){
                 cout << "We are sorry that we did not meet the requirements" << endl;
                 return 0;
             }
-            else if(this->choice == 2){
+            else if(choice == 2){
                 cout << "What price do You suggest?" << endl;
                 cin >> negotiate;
 
@@ -143,21 +143,21 @@ double Car::negotiate(double negotiate, double price){
 
                 if(negotiate < (price * (double)0.83)){
                     cout << "Your suggested price is too low. " << endl;
-                    cout << "We can offer You " + max((int)(price * 0.83), (int)((negotiate + price)/2));
+                    cout << "We can offer You " << max((int)(price * 0.83), (int)((negotiate + price)/2)) << endl;
                     cout << "Do You accept this offer?" << endl;
                     cout << "1. Yes \n2. No" << endl;
-                    cin >> this->choice;
+                    cin >> choice;
                 
-                    while (this->choice != 1 && this->choice != 2){
+                    while (choice != 1 && choice != 2){
                         cout << "Wrong number. Enter 1 or 2." << endl;
-                        cin >> this->choice;
+                        cin >> choice;
                     }
         
-                    if(this->choice == 1){
+                    if(choice == 1){
                         cout << "Great." << endl;
                         return max(price*(double)0.9, (negotiate + price)/2);
                     }
-                    else if(this->choice == 2){
+                    else if(choice == 2){
                         cout << "We are sorry that we did not meet the requirements" << endl;
                         return 0;
                     }

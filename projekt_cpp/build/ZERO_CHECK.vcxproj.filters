@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Natalia\Desktop\INFORMATYKA\III SEMESTR\PROGRAMOWANIE OBIEKTOWE\Projekt\Car_Rental_OOP\projekt_cpp\build\CMakeFiles\897395f3e06da55aa7191b434055152c\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{349FCE3E-22E7-3122-9434-06D868053145}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
