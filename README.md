@@ -1,6 +1,6 @@
 # Car Rental Company Simulator
 
-It is a semester project developed in Java using object oriented programming. The project consists of 10 classes and 2 interfaces, which together have about 2500 lines of code. 
+It is a semester project developed in Java and C++ using object oriented programming. The project consists of 10 classes and 2 interfaces, which together have about 2500 lines of code. 
 
 The system can be used to simulate the management of a  car rental company. The implemented functionalities allow You to manage the car fleet, employees and the company's budget. The system also facilitates work with the client. 
 
