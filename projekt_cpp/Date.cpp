@@ -4,15 +4,15 @@ Date::Date(){ }
 
 Date::Date(int day, int month, int year)  {
     while (year < 2021 || month < 1 || month > 12 || day < 0 || (day > 31 && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)) || (day > 30 && (month == 4 || month == 6 || month == 9 || month == 11)) || (day > 28 && month == 2 && (year % 4 > 0)) || (day > 29 && month == 2 && (year % 4 == 0))) {
-        cout << "Wprowadzona data jest niepoprawna." << endl;
+        cout << "The date entered is incorrect." << endl;
         
-        cout << "Wprowadz dzien ponownie: " << endl;
+        cout << "Enter the day again: " << endl;
         cin >> day;
 
-        cout << "Wprowadz miesiac ponownie: " << endl;
+        cout << "Enter the month again: " << endl;
         cin >> month;
 
-        cout << "Wprowadz rok ponownie: " << endl;
+        cout << "Enter the year again: " << endl;
         cin >> year;
     }
 
@@ -57,15 +57,15 @@ void Date::setDate(Date date){
 
 void Date::changeDate(int day, int month, int year) {
     while (year < 0 || month < 1 || month > 12 || day < 0 || (day > 31 && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)) || (day > 30 && (month == 4 || month == 6 || month == 9 || month == 11)) || (day > 28 && month == 2 && (year % 4 > 0)) || (day > 29 && month == 2 && (year % 4 == 0))) {
-        cout << "Wprowadzona data jest niepoprawna." << endl;
+        cout << "The date entered is incorrect." << endl;
 
-        cout << "Wprowadz dzien ponownie: " << endl;
+        cout << "Enter the day again: " << endl;
         cin >> day;
 
-        cout << "Wprowadz miesiac ponownie: " << endl;
+        cout << "Enter the month again: " << endl;
         cin >> month;
 
-        cout << "Wprowadz rok ponownie: " << endl;
+        cout << "Enter the year again: " << endl;
         cin >> year;
     }
 

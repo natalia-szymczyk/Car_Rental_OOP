@@ -566,7 +566,7 @@ void Fleet::reportAccident(Date date) {
     }
 
     if(choiceRepair == 1){
-        cout << "naprawiamy " << endl;
+        // cout << "naprawiamy " << endl;
         this->repairAVehicle(vehicles[choice]);
     }
 }
@@ -625,7 +625,7 @@ void Fleet::repairAVehicle() {
             cin >> choice;
         }
 
-        double carRepair = (rand() % 100) * vehicles[choice]->getValue() / 100;
+        double carRepair = (rand() % 100) * vehicles[choice]->getValue() / 1000;
 
         cout << "The repair of " << vehicles[choice]->getModel() << " will cost " << carRepair << ". Would You like to repair the car(1) or scrap it(2)?" << endl;
         cin >> choiceRepair;
